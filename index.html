@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <script defer src="main.js"></script></head>
-<body>
 
+<body>
+    <div class="taskbar">
+        <div class="taskbar-header">
+            <img src="c797d7eb57581afcc4a9.png" alt="">
+            <h3>ToDo List App</h3>
+        </div>
+        <div class="taskbar-buttons">
+            <button class="taskbar-button" id="allTasksBtn"><span>All Tasks</span></button>
+            <button class="taskbar-button" id="todaysTasksBtn"><span>Today's Tasks</span></button>
+            <button class="taskbar-button" id="weekTasksBtn"><span>This Week's Tasks</span></button>
+            <button class="taskbar-button" id="importantTasksBtn"><span>Important Tasks</span></button>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="main-content-header">
+            <div class="header-left">
+                <h1 class="title">All Tasks</h1>
+                <button id="addTaskBtn">Add Task</button>
+            </div>
+            <div class="header-right">
+                <div class="header-logo-text">
+                    <img src="d76275e12148ec81df92.png" alt=""><strong>Odin Project</strong>
+                </div>
+            </div>
+        </div>
+        <div class="main-content-body"></div>
+
+        <dialog id="taskModal" class="modal">
+            <div class="modal-content">
+                <h2>Add Task</h2>
+                <form id="taskForm" mehtod="dialog">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" name="dueDate" required>
+
+                    <div class="form-buttons">
+                        <label for="isImportant">Important:</label>
+                        <input type="checkbox" id="isImportant" name="isImportant">
+                        <button type="submit" id="taskBtn">Add Task</button>
+                        <button type="button" id="closeModalBtn">Close</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+    </div>
 </body>
+
 </html>
