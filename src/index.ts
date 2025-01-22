@@ -1,2 +1,4 @@
 import "./styles.css";
-import "./script";
+import { createPara } from "./ts/script";
+createPara();
+console.log("hello world");

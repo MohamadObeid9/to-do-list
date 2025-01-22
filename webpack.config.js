@@ -12,15 +12,30 @@ module.exports = {
   },
   devtool: "eval-source-map",
   devServer: {
-    watchFiles: ["./src/template.html"],
+    watchFiles: ["./src/index.html"],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/template.html",
+      template: "./src/index.html",
     }),
   ],
   module: {
     rules: [
+      {
+        test: /\.(?:js|mjs|cjs)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            targets: "defaults",
+            presets: [["@babel/preset-env"]],
+            plugins: [
+              "@babel/plugin-proposal-decorators",
+              { version: "2023-11" },
+            ],
+          },
+        },
+      },
       {
         test: /\.tsx?$/,
         use: "ts-loader",
@@ -28,14 +43,12 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.html$/i,
         loader: "html-loader",
       },
-      { test: /\.svg$/,
-        loader: "svg-inline-loader" },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
@@ -44,5 +57,8 @@ module.exports = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+  },
+  stats: {
+    loggingDebug: ["babel-loader"],
   },
 };
