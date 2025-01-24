@@ -1,8 +1,10 @@
 import "./styles.css";
 import { changeTitle } from "./ts/changeTitle";
-import { createTask } from "./ts/createTask";
+import { displayTasks } from "./ts/displayTasks";
+// import { createTask } from "./ts/createTask";
 // import { createPara } from "./ts/script";
 // createPara();
 changeTitle();
-createTask();
+displayTasks();
+// createTask();
 console.log("hello world");

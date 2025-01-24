@@ -1,30 +1,38 @@
 import { deleteTask } from "./deleteBtn";
+import { Task } from "./task";
 
-export const createTask = () => {
+export const createTask = (i: number, taskList: Task[]) => {
   const mainContent = document.querySelector(".mainContent") as HTMLElement;
   // Create a container div for the task
   const divContainer = document.createElement("div");
   divContainer.classList.add(
+    "hover:ring",
+    "ring-primary",
     "bg-red-300",
     "rounded-lg",
     "dark:bg-slate-500",
     "w-full",
     "h-[10%]",
     "p-2",
+    "my-2",
     "flex",
     "justify-between"
   );
   mainContent.appendChild(divContainer);
 
-  const form = document.createElement("form");
-  form.classList.add("flex");
-  divContainer.appendChild(form);
+  const textContainer = document.createElement("div");
+  textContainer.classList.add("flex");
+  divContainer.appendChild(textContainer);
+
+  const inputContainer = document.createElement("div");
+  inputContainer.classList.add("flex");
+  textContainer.appendChild(inputContainer);
 
   const input = document.createElement("input");
   input.classList.add("w-5", "h-5", "mx-3", "mt-2");
   input.setAttribute("type", "checkbox");
   input.setAttribute("id", "label");
-  form.appendChild(input);
+  inputContainer.appendChild(input);
 
   const label = document.createElement("label");
   label.setAttribute("for", "label");
@@ -32,17 +40,32 @@ export const createTask = () => {
   input.addEventListener("click", () => {
     label.classList.toggle("line-through");
   });
-  form.appendChild(label);
+  inputContainer.appendChild(label);
 
   const description = document.createElement("div");
-  description.textContent = "Default Task";
+  description.textContent = taskList[i].title;
   description.classList.add("tracking-wide", "mt-1", "text-lg");
   label.appendChild(description);
 
   const date = document.createElement("div");
-  date.textContent = "03-09-2004";
-  date.classList.add("text-[14px]", "text-slate-900", "italic");
+  date.textContent = taskList[i].date;
+  date.classList.add("text-[12px]", "text-slate-900", "italic");
   label.appendChild(date);
+
+  if (taskList[i].important) {
+    divContainer.classList.remove("ring-primary");
+    divContainer.classList.add("ring-red-500");
+    const important = document.createElement("span");
+    important.textContent = "(Important)";
+    important.classList.add(
+      "mx-2",
+      "mt-1",
+      "text-lg",
+      "text-slate-950",
+      "font-bold"
+    );
+    textContainer.appendChild(important);
+  }
 
   const buttons = document.createElement("div");
   buttons.classList.add("flex");
