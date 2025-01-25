@@ -1,11 +1,7 @@
 import { Task } from "./task";
 
-export const deleteTask = function (
-  i: number,
-  element: HTMLElement,
-  taskList: Task[]
-) {
-  // const taskList = JSON.parse(String(localStorage.getItem("tasks")));
+export const deleteTask = function (element: HTMLElement, i: number) {
+  const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
   taskList.splice(i, 1);
   localStorage.setItem("tasks", JSON.stringify(taskList));
   console.log(JSON.parse(String(localStorage.getItem("tasks"))));

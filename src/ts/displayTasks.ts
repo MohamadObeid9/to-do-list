@@ -1,14 +1,13 @@
 import { createTask } from "./createTask";
-import { defaultTaskList } from "./defaultTaskList";
 import { Task } from "./task";
 
 // Function to display all tasks
-export const displayTasks = function (task?: Task[]) {
+export const displayTasks = function () {
   // Get the list of tasks
-  const taskList = task === undefined ? defaultTaskList() : task;
+  const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
 
   // Loop through each task and create its DOM element
   taskList.forEach((task, index) => {
-    createTask(index, taskList); // Corrected to only pass the index
+    createTask(index); // Corrected to only pass the index
   });
 };

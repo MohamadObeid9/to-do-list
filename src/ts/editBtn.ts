@@ -4,11 +4,8 @@ import { format } from "date-fns";
 import { Task } from "./task";
 
 // Function to handle the edit button click event
-export const editBtn = function (
-  parent: HTMLElement,
-  i: number,
-  tasklist: Task[]
-) {
+export const editBtn = function (parent: HTMLElement, i: number) {
+  const tasklist: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
   const mainContent = document.querySelector(".mainContent") as HTMLElement;
   const taskBtn = document.querySelector("#taskBtn") as HTMLButtonElement;
   const dialog = document.querySelector("dialog") as HTMLDialogElement;
@@ -34,7 +31,7 @@ export const editBtn = function (
       console.log(format(taskDate, "yyyy-MM-dd"));
       date.value = format(taskDate, "yyyy-MM-dd");
     } else {
-      console.error("Invalid date value");
+      date.value = format(Date(), "yyyy-MM-dd");
     }
     important.checked = tasklist[i].important;
 
@@ -46,11 +43,11 @@ export const editBtn = function (
         tasklist,
         i,
         text.value,
-        format(new Date(date.value), "dd-MM-yyyy"),
+        date.value ? format(new Date(date.value), "dd-MM-yyyy") : tasklist[i].date,
         important.checked
       );
       dialog.close();
-      displayTasks(tasklist); // Pass the updated task list to displayTasks
+      displayTasks(); // Pass the updated task list to displayTasks
       text.value = "";
       date.value = format(Date(), "yyyy-MM-dd");
       important.checked = false;

@@ -2,7 +2,8 @@ import { deleteTask } from "./deleteBtn";
 import { editBtn } from "./editBtn";
 import { Task } from "./task";
 
-export const createTask = (i: number, taskList: Task[]) => {
+export const createTask = (i: number) => {
+  const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
   const mainContent = document.querySelector(".mainContent") as HTMLElement;
   // Create a container div for the task
   const divContainer = document.createElement("div");
@@ -88,7 +89,7 @@ export const createTask = (i: number, taskList: Task[]) => {
     "w-20",
     "rounded-lg"
   );
-  editButton.addEventListener("click", () => editBtn(editButton, i, taskList));
+  editButton.addEventListener("click", () => editBtn(editButton, i));
   buttons.appendChild(editButton);
 
   const deleteBtn = document.createElement("div");
@@ -107,6 +108,6 @@ export const createTask = (i: number, taskList: Task[]) => {
     "w-20",
     "rounded-lg"
   );
-  deleteBtn.addEventListener("click", () => deleteTask(i, deleteBtn, taskList));
+  deleteBtn.addEventListener("click", () => deleteTask(deleteBtn, i));
   buttons.appendChild(deleteBtn);
 };
