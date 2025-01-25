@@ -1,4 +1,5 @@
 import { deleteTask } from "./deleteBtn";
+import { editBtn } from "./editBtn";
 import { Task } from "./task";
 
 export const createTask = (i: number, taskList: Task[]) => {
@@ -44,7 +45,7 @@ export const createTask = (i: number, taskList: Task[]) => {
 
   const description = document.createElement("div");
   description.textContent = taskList[i].title;
-  description.classList.add("tracking-wide", "mt-1", "text-lg");
+  description.classList.add("tracking-wide", "mt-1", "text-lg", "max-w-96");
   label.appendChild(description);
 
   const date = document.createElement("div");
@@ -71,10 +72,11 @@ export const createTask = (i: number, taskList: Task[]) => {
   buttons.classList.add("flex");
   divContainer.appendChild(buttons);
 
-  const editBtn = document.createElement("div");
-  editBtn.textContent = "Edit";
-  editBtn.classList.add(
+  const editButton = document.createElement("div");
+  editButton.textContent = "Edit";
+  editButton.classList.add(
     "bg-blue-800",
+    "hover:cursor-pointer",
     "hover:bg-primary",
     "px-1",
     "flex",
@@ -86,12 +88,14 @@ export const createTask = (i: number, taskList: Task[]) => {
     "w-20",
     "rounded-lg"
   );
-  buttons.appendChild(editBtn);
+  editButton.addEventListener("click", () => editBtn(editButton, i, taskList));
+  buttons.appendChild(editButton);
 
   const deleteBtn = document.createElement("div");
   deleteBtn.textContent = "Delete";
   deleteBtn.classList.add(
     "bg-blue-800",
+    "hover:cursor-pointer",
     "hover:bg-primary",
     "px-1",
     "flex",
