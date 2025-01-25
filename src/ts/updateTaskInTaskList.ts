@@ -11,4 +11,5 @@ export const updateTaskInTaskList = (
   taskList[index].title = title;
   taskList[index].date = date;
   taskList[index].important = important;
+  localStorage.setItem("tasks", JSON.stringify(taskList));
 };

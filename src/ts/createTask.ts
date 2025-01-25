@@ -107,6 +107,6 @@ export const createTask = (i: number, taskList: Task[]) => {
     "w-20",
     "rounded-lg"
   );
-  deleteBtn.addEventListener("click", deleteTask);
+  deleteBtn.addEventListener("click", () => deleteTask(i, deleteBtn, taskList));
   buttons.appendChild(deleteBtn);
 };

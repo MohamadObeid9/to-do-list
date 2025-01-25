@@ -21,9 +21,14 @@ export const editBtn = function (
 
   // Function to populate the dialog with task details
   const showDialog = () => {
-    taskBtn.textContent = "Edit task";
-    dialog.show();
-    text.value = tasklist[i].title;
+    if (taskBtn) {
+      taskBtn.textContent = "Edit task";
+      dialog.show();
+      text.value = tasklist[i].title;
+    } else {
+      console.error("Task button not found");
+      return;
+    }
     const taskDate = new Date(tasklist[i].date);
     if (!isNaN(taskDate.getTime())) {
       console.log(format(taskDate, "yyyy-MM-dd"));
@@ -41,7 +46,7 @@ export const editBtn = function (
         tasklist,
         i,
         text.value,
-        format(date.value, "dd-MM-yyyy"),
+        format(new Date(date.value), "dd-MM-yyyy"),
         important.checked
       );
       dialog.close();

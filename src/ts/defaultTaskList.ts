@@ -1,9 +1,7 @@
 import { Task } from "./task";
 export const defaultTaskList = () => {
-  const taskList: Task[] = [];
-  const task1 = new Task("Default Task", "12-20-2024", true); // Create an important task
-  const task2 = new Task("this is a default task", "12-29-2024", false); // Create a non-important task
-  taskList.push(task1);
-  taskList.push(task2);
+  const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
+
+  // console.log(JSON.parse(String(localStorage.getItem("tasks"))));
   return taskList; // Return the list of tasks
 };
