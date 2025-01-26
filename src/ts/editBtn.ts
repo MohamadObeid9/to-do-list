@@ -43,11 +43,13 @@ export const editBtn = function (parent: HTMLElement, i: number) {
         tasklist,
         i,
         text.value,
-        date.value ? format(new Date(date.value), "dd-MM-yyyy") : tasklist[i].date,
+        date.value
+          ? format(new Date(date.value), "dd-MM-yyyy")
+          : tasklist[i].date,
         important.checked
       );
       dialog.close();
-      displayTasks(); // Pass the updated task list to displayTasks
+      displayTasks(tasklist); // Pass the updated task list to displayTasks
       text.value = "";
       date.value = format(Date(), "yyyy-MM-dd");
       important.checked = false;

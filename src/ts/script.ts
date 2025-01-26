@@ -1,15 +1,12 @@
 import { addNewTask } from "./addNewTask";
+// import { buttonsListeners } from "./buttonsListeners";
 import { changeTitle } from "./changeTitle";
-import { displayTasks } from "./displayTasks";
+
 import { openDialog } from "./openDialog";
 export const launchPrg = () => {
-  // import { createTask } from "./createTask";
-  // import { createPara } from "./script";
-  // createPara();
+  // buttonsListeners(); unfinished feature
   changeTitle();
-  displayTasks();
   openDialog();
   addNewTask();
-  // createTask();
   console.log("hello world");
 };

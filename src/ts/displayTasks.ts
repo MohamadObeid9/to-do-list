@@ -2,9 +2,9 @@ import { createTask } from "./createTask";
 import { Task } from "./task";
 
 // Function to display all tasks
-export const displayTasks = function () {
+export const displayTasks = function (taskList: Task[]) {
   // Get the list of tasks
-  const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
+  // const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
 
   // Loop through each task and create its DOM element
   taskList.forEach((task, index) => {
