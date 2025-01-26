@@ -10,7 +10,7 @@ export const addTaskToTaskList = (
   if (text === "" && date === "")
     return; // Do nothing if both date and text are empty
   else {
-    const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
+    const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks"))) || [];
     const dateObj = new Date(date);
     const newTask = new Task(text, format(dateObj, "dd-MM-yyyy"), important); // Create a new task
     taskList.push(newTask); // Add the new task to the list
