@@ -6,7 +6,7 @@
     <title>ToDo List App</title>
   <script defer src="main.js"></script></head>
 
-  <body class="flex h-screen selection:bg-slate-500">
+  <body class="flex h-screen selection:bg-slate-500 overflow-hidden">
     <!-- Left Section -->
     <div class="bg-gray-900 w-[25%] dark:bg-gray-900">
       <!-- Header Section -->
@@ -100,14 +100,15 @@
           </div>
         </div>
       </div>
+      <!-- Project Title -->
+      <div
+        class="text-white text-3xl mx-7 flex items-center mb-3 mt-8 justify-between cursor-default"
+      >
+        <div>Projects</div>
+        <span class="text-4xl addProject">+</span>
+      </div>
       <!-- Projects  -->
-      <div class="cursor-default projects">
-        <div
-          class="text-white text-3xl mx-7 flex items-center mb-3 mt-8 justify-between"
-        >
-          <div>Projects</div>
-          <span class="text-4xl addProject">+</span>
-        </div>
+      <div class="cursor-default projects h-1/2 overflow-auto">
         <!-- Default Project -->
         <div
           class="flex items-center justify-between p-3 pl-5 mx-5 rounded-md hover:bg-gray-400 group mb-2"
@@ -183,14 +184,14 @@
                   </div>
                   <button
                     type="submit"
-                    class="bg-blue-800 hover:bg-blue-500 px-4 py-1 my-2 text-slate-300 rounded-lg"
+                    class="bg-blue-800 hover:bg-red-500 px-4 py-1 my-2 text-slate-300 rounded-lg"
                     id="taskBtn"
                   >
                     Add Task
                   </button>
                   <button
                     type="button"
-                    class="bg-blue-800 hover:bg-blue-500 px-4 py-1 my-2 text-slate-300 rounded-lg"
+                    class="bg-blue-800 hover:bg-red-500 px-4 py-1 my-2 text-slate-300 rounded-lg"
                     id="closeModalBtn"
                   >
                     Close
@@ -211,7 +212,9 @@
         </div>
       </div>
       <!-- Main Content -->
-      <div class="mainContent"></div>
+      <div class="mainContent h-[80%] overflow-auto"></div>
     </div>
+    <!-- a hidden img , for the only sake of getting its svg to work in createProject.ts -->
+    <img src="297a9555e78e7dcf71a8.svg" alt="" class="hidden" />
   </body>
 </html>
