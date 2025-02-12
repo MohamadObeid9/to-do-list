@@ -100,6 +100,28 @@
           </div>
         </div>
       </div>
+      <!-- Projects  -->
+      <div class="cursor-default projects">
+        <div
+          class="text-white text-3xl mx-7 flex items-center mb-3 mt-8 justify-between"
+        >
+          <div>Projects</div>
+          <span class="text-4xl addProject">+</span>
+        </div>
+        <!-- Default Project -->
+        <div
+          class="flex items-center justify-between p-3 pl-5 mx-5 rounded-md hover:bg-gray-400 group mb-2"
+        >
+          <div class="text-slate-400 text-xl inline group-hover:text-primary">
+            Default project
+          </div>
+          <img
+            src="46a3a45095cea947aa35.svg"
+            alt="trash-can"
+            class="h-4 w-4 inline delete-project"
+          />
+        </div>
+      </div>
     </div>
     <!-- Right Section -->
     <div class="w-full p-8 bg-gray-700 dark:bg-gray-700">
@@ -116,11 +138,11 @@
           >
             Add Task
           </button>
-          <dialog class="mx-auto w-64">
+          <dialog class="mx-auto w-64 bg-transparent">
             <div
-              class="flex items-center flex-col dark:bg-gray-500 text-slate-900 tracking-wide"
+              class="flex items-center flex-col dark:bg-blue-500 text-slate-900 tracking-wide rounded-2xl py-5"
             >
-              <h2 class="text-center text-2xl font-bold mt-4 mb-2">Add Task</h2>
+              <h2 class="text-center text-2xl font-bold mt-2 mb-2">Add Task</h2>
               <form id="taskForm" mehtod="dialog" class="text-lg">
                 <div class="my-3">
                   <label for="description" class="block font-bold mb-1"
