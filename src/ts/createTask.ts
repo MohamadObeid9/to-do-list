@@ -2,8 +2,8 @@ import { deleteTask } from "./deleteBtn";
 import { editBtn } from "./editBtn";
 import { Task } from "./task";
 
-export const createTask = (i: number) => {
-  const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
+export const createTask = (i: number, taskList: Task[]) => {
+  // const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
   const mainContent = document.querySelector(".mainContent") as HTMLElement;
   // Create a container div for the task
   const divContainer = document.createElement("div");
@@ -33,11 +33,11 @@ export const createTask = (i: number) => {
   const input = document.createElement("input");
   input.classList.add("w-5", "h-5", "mx-3", "mt-2");
   input.setAttribute("type", "checkbox");
-  input.setAttribute("id", "label");
+  input.setAttribute("id", `label_${i}`);
   inputContainer.appendChild(input);
 
   const label = document.createElement("label");
-  label.setAttribute("for", "label");
+  label.setAttribute("for", `label_${i}`);
   label.classList.add("hover:font-bold");
   input.addEventListener("click", () => {
     label.classList.toggle("line-through");

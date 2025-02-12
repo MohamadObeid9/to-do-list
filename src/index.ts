@@ -1,3 +1,3 @@
 import "./styles.css";
-import { launchPrg } from "./ts/script";
+import { launchPrg } from "./ts/launchPrg";
 launchPrg();
