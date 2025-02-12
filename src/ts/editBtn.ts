@@ -26,13 +26,16 @@ export const editBtn = function (parent: HTMLElement, i: number) {
       console.error("Task button not found");
       return;
     }
+
     const taskDate = new Date(tasklist[i].date);
+
     if (!isNaN(taskDate.getTime())) {
       console.log(format(taskDate, "yyyy-MM-dd"));
       date.value = format(taskDate, "yyyy-MM-dd");
     } else {
       date.value = format(Date(), "yyyy-MM-dd");
     }
+
     important.checked = tasklist[i].important;
 
     // Add event listener to the task button for editing the task
@@ -56,6 +59,5 @@ export const editBtn = function (parent: HTMLElement, i: number) {
     };
   };
 
-  // Add click event listener to the parent element
-  parent.addEventListener("click", showDialog);
+  showDialog();
 };

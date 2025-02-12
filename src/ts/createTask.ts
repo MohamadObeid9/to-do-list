@@ -14,7 +14,7 @@ export const createTask = (i: number, taskList: Task[]) => {
     "rounded-lg",
     "dark:bg-slate-500",
     "w-full",
-    "h-[10%]",
+    "min-h-[10%]",
     "p-2",
     "my-2",
     "flex",

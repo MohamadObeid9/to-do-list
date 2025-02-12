@@ -1,9 +1,10 @@
 import { deleteProjcet } from "./deleteProject";
+
 export const createProject = () => {
   const projects = document.querySelector(".projects") as HTMLElement;
 
-  const container = document.createElement("div");
-  container.classList.add(
+  const inputContainer = document.createElement("form");
+  inputContainer.classList.add(
     "flex",
     "items-center",
     "justify-between",
@@ -11,28 +12,61 @@ export const createProject = () => {
     "pl-5",
     "mx-5",
     "rounded-md",
-    "hover:bg-gray-400",
-    "mb-2",
-    "group"
+    "mb-2"
   );
-  projects?.appendChild(container);
+  projects.appendChild(inputContainer);
 
-  const text = document.createElement("div");
-  text.textContent = "Some text";
-  text.classList.add(
-    "text-slate-400",
-    "text-xl",
-    "inline",
-    "group-hover:text-primary"
-  );
-  container.appendChild(text);
+  const input = document.createElement("input");
+  input.autofocus = true;
+  input.classList.add("w-full", "inline", "bg-slate-200", "rounded-md", "p-1");
+  inputContainer.appendChild(input);
 
-  const img = document.createElement("img");
-  img.src = "46a3a45095cea947aa35.svg";
-  img.alt = "trash-can";
-  img.classList.add("h-4", "w-4", "inline", "delete-project");
-  img.addEventListener("click", () => {
-    deleteProjcet(img);
+  const done = document.createElement("img");
+  done.src = "297a9555e78e7dcf71a8.svg";
+  done.classList.add("text-primary", "h-5", "w-5", "m-1");
+  inputContainer.appendChild(done);
+
+  done.addEventListener("click", () => {
+    if (input.value == "") {
+      inputContainer.remove();
+      console.log("input invalid");
+    } else {
+      const inputText = input.value; // Use input.value to get the input text content instead of input.textContent
+      inputContainer.remove();
+
+      const container = document.createElement("div");
+      container.classList.add(
+        "flex",
+        "items-center",
+        "justify-between",
+        "p-3",
+        "pl-5",
+        "mx-5",
+        "rounded-md",
+        "hover:bg-gray-400",
+        "mb-2",
+        "group"
+      );
+      projects.appendChild(container);
+
+      const text = document.createElement("div");
+      text.textContent = inputText;
+      text.classList.add(
+        "text-slate-400",
+        "text-xl",
+        "inline",
+        "group-hover:text-primary"
+      );
+      container.appendChild(text);
+
+      const img = document.createElement("img");
+      img.src = "46a3a45095cea947aa35.svg";
+      img.alt = "trash-can";
+      img.classList.add("h-4", "w-4", "inline", "delete-project");
+      img.addEventListener("click", () => {
+        deleteProjcet(img);
+      });
+      container.appendChild(img);
+    }
   });
-  container.appendChild(img);
 };
