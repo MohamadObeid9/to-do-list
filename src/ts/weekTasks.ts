@@ -1,13 +1,13 @@
-import { isSameDay, parse } from "date-fns";
+import { isSameWeek, parse } from "date-fns";
 import { Task } from "./task";
 import { displayTasks } from "./displayTasks";
-export const todayTasks = () => {
+export const weekTasks = () => {
   const taskList: Task[] =
     JSON.parse(String(localStorage.getItem("tasks"))) || [];
 
   const newList: Task[] = taskList.filter((task: Task) => {
     const taskDate = parse(task.date, "dd-MM-yyyy", new Date());
-    if (isSameDay(taskDate, new Date())) {
+    if (isSameWeek(taskDate, new Date())) {
       return task;
     }
   });

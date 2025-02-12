@@ -1,10 +1,10 @@
 import { addNewTask } from "./addNewTask";
 import { addProject } from "./addProject";
-// import { buttonsListeners } from "./buttonsListeners";
+import { buttonsListeners } from "./buttonsListeners";
 import { changeTitle } from "./changeTitle";
-import { defaultTaskList } from "./defaultTasks";
+// import { defaultTaskList } from "./defaultTasks";
 import { deleteProjcet } from "./deleteProject";
-import { displayTasks } from "./displayTasks";
+// import { displayTasks } from "./displayTasks";
 import { openDialog } from "./openDialog";
 
 export const launchPrg = () => {
@@ -12,8 +12,8 @@ export const launchPrg = () => {
   deleteBtn?.addEventListener("click", () => {
     deleteProjcet(deleteBtn);
   });
-  // buttonsListeners(); unfinished feature
-  displayTasks(defaultTaskList());
+  buttonsListeners(); //unfinished feature
+  // displayTasks(defaultTaskList());
   changeTitle();
   openDialog();
   addNewTask();

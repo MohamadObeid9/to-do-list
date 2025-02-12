@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { addNewTask } from "./addNewTask";
 
 export const openDialog = () => {
@@ -5,6 +6,10 @@ export const openDialog = () => {
   const dialog = document.querySelector("dialog") as HTMLDialogElement;
   // Select the add task button
   const addTaskBtn = document.querySelector("#addTaskBtn") as HTMLButtonElement;
+  const dueDate = document.querySelector("#dueDate") as HTMLInputElement;
+  const description = document.querySelector(
+    "#description"
+  ) as HTMLInputElement;
   // Select the submit button
   const submitBtn = document.querySelector("#taskBtn") as HTMLButtonElement;
   // Select the close task button
@@ -22,8 +27,8 @@ export const openDialog = () => {
   addTaskBtn.addEventListener("click", () => {
     // Set the submit button text to "Add Task"
     submitBtn.textContent = "Add Task";
-    // Set the submit button id to "1"
-    submitBtn.id = "1";
+
+    dueDate.value = format(new Date(), "yyyy-MM-dd");
     // Show the dialog
     dialog.show();
   });
@@ -32,6 +37,7 @@ export const openDialog = () => {
   submitBtn.addEventListener("click", (e) => {
     closeDialog(e);
     addNewTask();
+    description.value = "";
   });
 
   // Add click event listener to the close task button

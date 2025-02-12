@@ -7,7 +7,7 @@ export const addTaskToTaskList = (
   date: string,
   important: boolean
 ) => {
-  if (text === "" && date === "")
+  if (text === "" || date === "")
     return; // Do nothing if both date and text are empty
   else {
     const taskList: Task[] =
