@@ -21,12 +21,17 @@ export const createProject = () => {
   input.classList.add("w-full", "inline", "bg-slate-200", "rounded-md", "p-1");
   inputContainer.appendChild(input);
 
+  const submitBtn = document.createElement("button");
+  submitBtn.setAttribute("type", "submit");
+  inputContainer.appendChild(submitBtn);
+
   const done = document.createElement("img");
   done.src = "297a9555e78e7dcf71a8.svg";
   done.classList.add("text-primary", "h-5", "w-5", "m-1");
-  inputContainer.appendChild(done);
+  submitBtn.appendChild(done);
 
-  done.addEventListener("click", () => {
+  submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     if (input.value == "") {
       inputContainer.remove();
       console.log("input invalid");

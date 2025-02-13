@@ -78,7 +78,7 @@ export const createTask = (i: number, taskList: Task[]) => {
   editButton.classList.add(
     "bg-blue-800",
     "hover:cursor-pointer",
-    "hover:bg-primary",
+    "hover:bg-red-500",
     "px-1",
     "flex",
     "justify-center",
@@ -97,7 +97,7 @@ export const createTask = (i: number, taskList: Task[]) => {
   deleteBtn.classList.add(
     "bg-blue-800",
     "hover:cursor-pointer",
-    "hover:bg-primary",
+    "hover:bg-red-500",
     "px-1",
     "flex",
     "justify-center",
