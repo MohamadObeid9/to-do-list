@@ -3,7 +3,6 @@ import { editBtn } from "./editBtn";
 import { Task } from "./task";
 
 export const createTask = (i: number, taskList: Task[]) => {
-  // const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
   const mainContent = document.querySelector(".mainContent") as HTMLElement;
   // Create a container div for the task
   const divContainer = document.createElement("div");
@@ -89,7 +88,7 @@ export const createTask = (i: number, taskList: Task[]) => {
     "w-20",
     "rounded-lg"
   );
-  editButton.addEventListener("click", () => editBtn(editButton, i));
+  editButton.addEventListener("click", () => editBtn(i));
   buttons.appendChild(editButton);
 
   const deleteBtn = document.createElement("div");

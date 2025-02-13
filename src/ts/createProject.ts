@@ -1,7 +1,8 @@
 import { deleteProjcet } from "./deleteProject";
+// import { projectsList } from "./launchPrg";
 
 export const createProject = () => {
-  const projects = document.querySelector(".projects") as HTMLElement;
+  const projects = document.querySelector("#projects") as HTMLElement;
 
   const inputContainer = document.createElement("form");
   inputContainer.classList.add(
@@ -37,6 +38,13 @@ export const createProject = () => {
       console.log("input invalid");
     } else {
       const inputText = input.value; // Use input.value to get the input text content instead of input.textContent
+      const projectsList: string[] = JSON.parse(
+        String(localStorage.getItem("projects"))
+      );
+      projectsList.push(inputText);
+      const list: string[] = [];
+      localStorage.setItem("projects", JSON.stringify(projectsList));
+      localStorage.setItem(`${inputText}`, JSON.stringify(list));
       inputContainer.remove();
 
       const container = document.createElement("div");
@@ -70,6 +78,11 @@ export const createProject = () => {
       img.classList.add("h-4", "w-4", "inline", "delete-project");
       img.addEventListener("click", () => {
         deleteProjcet(img);
+        const newList = projectsList.filter(function (project) {
+          return project != inputText;
+        });
+        localStorage.setItem("projects", JSON.stringify(newList));
+        localStorage.removeItem(`${inputText}`);
       });
       container.appendChild(img);
     }

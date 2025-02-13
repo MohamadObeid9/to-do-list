@@ -5,7 +5,9 @@ import { todayTasks } from "./todayTasks";
 import { weekTasks } from "./weekTasks";
 
 export const buttonsListeners = () => {
-  const taskList: Task[] = JSON.parse(String(localStorage.getItem("tasks")));
+  const taskList: Task[] = JSON.parse(
+    String(localStorage.getItem(String(localStorage.getItem("primaryProject"))))
+  );
   const importantBtn = document.querySelector("#importantBtn") as HTMLElement;
   const todayBtn = document.querySelector("#todayBtn") as HTMLElement;
   const weekBtn = document.querySelector("#weekBtn") as HTMLElement;
@@ -18,7 +20,13 @@ export const buttonsListeners = () => {
   };
   allTasks.addEventListener("click", () => {
     mainContent.innerHTML = "";
-    displayTasks(taskList);
+    displayTasks(
+      JSON.parse(
+        String(
+          localStorage.getItem(String(localStorage.getItem("primaryProject")))
+        )
+      )
+    );
   });
   importantBtn.addEventListener("click", () => {
     mainContent.innerHTML = "";

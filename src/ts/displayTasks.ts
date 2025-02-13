@@ -2,7 +2,7 @@ import { createTask } from "./createTask";
 import { Task } from "./task";
 
 // Function to display all tasks
-export const displayTasks = function (taskListParam?: Task[]) {
+export const displayTasks = function (taskListParam: Task[]) {
   const taskList = taskListParam;
   if (taskList) {
     // Loop through each task and create its DOM element

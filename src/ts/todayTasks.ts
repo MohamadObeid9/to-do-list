@@ -3,7 +3,11 @@ import { Task } from "./task";
 import { displayTasks } from "./displayTasks";
 export const todayTasks = () => {
   const taskList: Task[] =
-    JSON.parse(String(localStorage.getItem("tasks"))) || [];
+    JSON.parse(
+      String(
+        localStorage.getItem(String(localStorage.getItem("primaryProject")))
+      )
+    ) || [];
 
   const newList: Task[] = taskList.filter((task: Task) => {
     const taskDate = parse(task.date, "dd-MM-yyyy", new Date());
