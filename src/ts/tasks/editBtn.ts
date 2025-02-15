@@ -1,9 +1,8 @@
-import { updateTaskInTaskList } from "./updateTaskInTaskList"; // Import the new function
+import { updateTaskInTaskList } from "./updateTaskInTaskList";
 import { displayTasks } from "./displayTasks";
 import { format } from "date-fns";
 import { Task } from "./task";
 
-// Function to handle the edit button click event
 export const editBtn = function (i: number) {
   const primaryProject = localStorage.getItem("primaryProject");
   if (!primaryProject) {
@@ -26,10 +25,6 @@ export const editBtn = function (i: number) {
   const date = document.querySelector("#dueDate") as HTMLInputElement;
   const important = document.querySelector("#isImportant") as HTMLInputElement;
 
-  // Ensure the date input field is of type "date"
-  date.type = "date";
-
-  // Function to populate the dialog with task details
   const showDialog = () => {
     if (!taskBtn) {
       console.error("Task button not found");
@@ -50,10 +45,8 @@ export const editBtn = function (i: number) {
     const newTaskBtn = taskBtn.cloneNode(true) as HTMLButtonElement; //thanks github copilot , you're my hero
     taskBtn.parentNode?.replaceChild(newTaskBtn, taskBtn);
 
-    // Add event listener to the new task button for editing the task
     newTaskBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      // Clear existing tasks
       mainContent.innerHTML = "";
       updateTaskInTaskList(
         tasklist,
@@ -65,10 +58,12 @@ export const editBtn = function (i: number) {
         important.checked
       );
       dialog.close();
-      displayTasks(tasklist); // Pass the updated task list to displayTasks
+      displayTasks(tasklist);
       text.value = "";
       date.value = format(new Date(), "yyyy-MM-dd");
       important.checked = false;
+      newTaskBtn.textContent = "Add task";
+      newTaskBtn.parentNode?.replaceChild(taskBtn, newTaskBtn);
     });
   };
 

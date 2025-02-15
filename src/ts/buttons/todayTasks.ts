@@ -1,6 +1,6 @@
 import { isSameDay, parse } from "date-fns";
-import { Task } from "./task";
-import { displayTasks } from "./displayTasks";
+import { Task } from "../tasks/task";
+import { displayTasks } from "../tasks/displayTasks";
 export const todayTasks = () => {
   const taskList: Task[] =
     JSON.parse(

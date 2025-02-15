@@ -1,5 +1,5 @@
-import { displayTasks } from "./displayTasks";
-import { Task } from "./task";
+import { displayTasks } from "../tasks/displayTasks";
+import { Task } from "../tasks/task";
 
 export const importantTasks = () => {
   const taskList: Task[] =

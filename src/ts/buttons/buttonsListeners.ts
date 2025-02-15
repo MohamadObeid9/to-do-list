@@ -1,6 +1,6 @@
-import { displayTasks } from "./displayTasks";
+import { displayTasks } from "../tasks/displayTasks";
 import { importantTasks } from "./importantTasks";
-import { Task } from "./task";
+import { Task } from "../tasks/task";
 import { todayTasks } from "./todayTasks";
 import { weekTasks } from "./weekTasks";
 
