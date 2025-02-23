@@ -1,4 +1,4 @@
-import { deleteProjcet } from "./deleteProject";
+import { deleteProject } from "./deleteProject";
 import { displayPrimaryTasks } from "./displayPrimaryTasks";
 
 export const createProjectContainer = (element: string) => {
@@ -46,13 +46,9 @@ export const createProjectContainer = (element: string) => {
   img.src = "46a3a45095cea947aa35.svg";
   img.alt = "trash-can";
   img.classList.add("h-4", "w-4", "inline", "delete-project");
-  img.addEventListener("click", () => {
-    deleteProjcet(img);
-    const newList = list.filter((project) => project !== element);
-    localStorage.setItem("primaryProject", "defaultProject");
-    localStorage.setItem("projects", JSON.stringify(newList));
-    localStorage.removeItem(element);
-    displayPrimaryTasks();
+  img.addEventListener("click", (event) => {
+    event.stopPropagation(); //without this , when i delete a project i stay in the plank page . with it , i return to the defaultProject page
+    deleteProject(container, element);
   });
   container.appendChild(img);
 };
