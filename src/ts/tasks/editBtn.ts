@@ -55,7 +55,8 @@ export const editBtn = function (i: number) {
         date.value
           ? format(new Date(date.value), "dd-MM-yyyy")
           : tasklist[i].date,
-        important.checked
+        important.checked,
+        tasklist[i].checked
       );
       dialog.close();
       displayTasks(tasklist);

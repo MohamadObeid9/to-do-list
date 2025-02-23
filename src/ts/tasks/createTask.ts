@@ -1,6 +1,7 @@
 import { deleteTask } from "./deleteBtn";
 import { editBtn } from "./editBtn";
 import { Task } from "./task";
+import { updateTaskInTaskList } from "./updateTaskInTaskList";
 
 export const createTask = (i: number, taskList: Task[]) => {
   const mainContent = document.querySelector(".mainContent") as HTMLElement;
@@ -38,10 +39,36 @@ export const createTask = (i: number, taskList: Task[]) => {
   const label = document.createElement("label");
   label.setAttribute("for", `label_${i}`);
   label.classList.add("hover:font-bold");
-  input.addEventListener("click", () => {
-    label.classList.toggle("line-through");
-  });
   inputContainer.appendChild(label);
+
+  if (taskList[i].checked) {
+    input.checked = true;
+    label.classList.add("line-through");
+  }
+
+  input.addEventListener("click", () => {
+    if (input.checked) {
+      label.classList.add("line-through");
+      updateTaskInTaskList(
+        taskList,
+        i,
+        taskList[i].title,
+        taskList[i].date,
+        taskList[i].important,
+        true
+      );
+    } else {
+      label.classList.remove("line-through");
+      updateTaskInTaskList(
+        taskList,
+        i,
+        taskList[i].title,
+        taskList[i].date,
+        taskList[i].important,
+        false
+      );
+    }
+  });
 
   const description = document.createElement("div");
   description.textContent = taskList[i].title;

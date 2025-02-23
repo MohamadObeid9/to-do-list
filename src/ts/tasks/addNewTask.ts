@@ -16,5 +16,5 @@ export const addNewTask = (): void => {
   const important = isImportantInput.checked;
 
   // Add the new task to the task list
-  addTaskToTaskList(text, date, important);
+  addTaskToTaskList(text, date, important,false);
 };

@@ -1,4 +1,3 @@
-import { addNewTask } from "./tasks/addNewTask";
 import { addProject } from "./projects/addProject";
 import { buttonsListeners } from "./buttons/buttonsListeners";
 import { changeTitle } from "./buttons/changeTitle";
@@ -18,7 +17,6 @@ export const launchPrg = () => {
   changeTitle();
   openDialog();
   displayProjects();
-  addNewTask();
   addProject();
   console.log("hello world");
 };

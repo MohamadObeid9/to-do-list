@@ -5,7 +5,8 @@ export const updateTaskInTaskList = (
   index: number,
   title: string,
   date: string,
-  important: boolean
+  important: boolean,
+  checked: boolean
 ): void => {
   if (index < 0 || index >= taskList.length) {
     console.error("Invalid index");
@@ -16,6 +17,7 @@ export const updateTaskInTaskList = (
   task.title = title;
   task.date = date;
   task.important = important;
+  task.checked = checked;
 
   const primaryProject = localStorage.getItem("primaryProject");
   if (primaryProject) {
