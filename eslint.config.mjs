@@ -6,7 +6,17 @@ import tseslint from "typescript-eslint";
 export default [
   { files: ["**/*.{js,mjs,cjs,ts}"] },
   {
-    ignores: ["**/*.config.js","dist/main.js","**/*.config.cjs"],
+    ignores: ["**/*.config.js", "dist/main.js", "**/*.config.cjs"],
+  },
+  {
+    rules: {
+      "@typescript-eslint/no-require-imports": [
+        "error",
+        {
+          allowAsImport: true,
+        },
+      ],
+    },
   },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,

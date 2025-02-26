@@ -1,5 +1,6 @@
 import { deleteProject } from "./deleteProject";
 import { displayPrimaryTasks } from "./displayPrimaryTasks";
+import trashCan = require("./../../img/trash-can-svgrepo-com (3).svg");
 
 export const createProjectContainer = (element: string) => {
   const projects = document.querySelector("#projects") as HTMLElement;
@@ -43,7 +44,7 @@ export const createProjectContainer = (element: string) => {
   });
 
   const img = document.createElement("img");
-  img.src = "46a3a45095cea947aa35.svg";
+  img.src = String(trashCan);
   img.alt = "trash-can";
   img.classList.add("h-4", "w-4", "inline", "delete-project");
   img.addEventListener("click", (event) => {

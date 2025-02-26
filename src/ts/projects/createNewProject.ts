@@ -1,4 +1,5 @@
 import { createProjectContainer } from "./createProjectContainer";
+import doneIcon = require("./../../img/done-mini-1484-svgrepo-com.svg");
 
 export const createNewProject = () => {
   const projects = document.querySelector("#projects") as HTMLElement;
@@ -26,7 +27,7 @@ export const createNewProject = () => {
   inputContainer.appendChild(submitBtn);
 
   const done = document.createElement("img");
-  done.src = "297a9555e78e7dcf71a8.svg";
+  done.src = String(doneIcon);
   done.classList.add("text-primary", "h-5", "w-5", "m-1");
   submitBtn.appendChild(done);
 
