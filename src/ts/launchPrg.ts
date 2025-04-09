@@ -4,6 +4,7 @@ import { changeTitle } from "./buttons/changeTitle";
 import { defaultTaskList } from "./tasks/defaultTasks";
 import { displayProjects } from "./projects/displayProject";
 import { openDialog } from "./tasks/openDialog";
+import { openCloseNav } from "./buttons/openCloseNav";
 
 export const projectsList: string[] = ["defaultProject"];
 
@@ -16,6 +17,7 @@ export const launchPrg = () => {
   buttonsListeners();
   changeTitle();
   openDialog();
+  openCloseNav();
   displayProjects();
   addProject();
   console.log("hello world");

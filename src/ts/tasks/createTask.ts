@@ -23,7 +23,7 @@ export const createTask = (i: number, taskList: Task[]) => {
   mainContent.appendChild(divContainer);
 
   const textContainer = document.createElement("div");
-  textContainer.classList.add("flex");
+  textContainer.classList.add("flex","flex-col","max-md:items-center","max-md:justify-center","md:flex-row");
   divContainer.appendChild(textContainer);
 
   const inputContainer = document.createElement("div");
@@ -31,7 +31,7 @@ export const createTask = (i: number, taskList: Task[]) => {
   textContainer.appendChild(inputContainer);
 
   const input = document.createElement("input");
-  input.classList.add("w-5", "h-5", "mx-3", "mt-2");
+  input.classList.add("size-5", "mx-3", "mt-2");
   input.setAttribute("type", "checkbox");
   input.setAttribute("id", `label_${i}`);
   inputContainer.appendChild(input);
@@ -72,7 +72,7 @@ export const createTask = (i: number, taskList: Task[]) => {
 
   const description = document.createElement("div");
   description.textContent = taskList[i].title;
-  description.classList.add("tracking-wide", "mt-1", "text-lg", "max-w-96");
+  description.classList.add("tracking-wide", "mt-1", "md:text-lg", "max-w-96");
   label.appendChild(description);
 
   const date = document.createElement("div");
@@ -86,9 +86,9 @@ export const createTask = (i: number, taskList: Task[]) => {
     const important = document.createElement("span");
     important.textContent = "(Important)";
     important.classList.add(
-      "mx-2",
+      "md:mx-2",
       "mt-1",
-      "text-lg",
+      "md:text-lg",
       "text-slate-950",
       "font-bold"
     );
@@ -96,7 +96,13 @@ export const createTask = (i: number, taskList: Task[]) => {
   }
 
   const buttons = document.createElement("div");
-  buttons.classList.add("flex");
+  buttons.classList.add(
+    "flex",
+    "flex-col",
+    "justify-center",
+    "md:flex-row",
+    "gap-2"
+  );
   divContainer.appendChild(buttons);
 
   const editButton = document.createElement("div");
@@ -106,10 +112,11 @@ export const createTask = (i: number, taskList: Task[]) => {
     "hover:cursor-pointer",
     "hover:bg-red-500",
     "px-1",
+    "py-2",
     "flex",
     "justify-center",
     "items-center",
-    "text-xl",
+    "md:text-xl",
     "mr-2",
     "text-slate-300",
     "w-20",
@@ -125,10 +132,11 @@ export const createTask = (i: number, taskList: Task[]) => {
     "hover:cursor-pointer",
     "hover:bg-red-500",
     "px-1",
+    "py-2",
     "flex",
     "justify-center",
     "items-center",
-    "text-xl",
+    "md:text-xl",
     "mr-2",
     "text-slate-300",
     "w-20",
